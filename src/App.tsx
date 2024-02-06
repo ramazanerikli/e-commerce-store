@@ -43,7 +43,7 @@ function App() {
           </div>
         </div>
 
-        <div className="row products-content mt-5">
+        <div className="row products-content mt-5 mb-5">
           <div className="col-lg-3">
             <h5 className="mb-4">Category</h5>
             <div className="category-list">

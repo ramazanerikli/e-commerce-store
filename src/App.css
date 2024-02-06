@@ -1,0 +1,77 @@
+
+nav {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 4px solid #E4E4E4;
+}
+nav .cart-badge {
+  width: 21px;
+  height: 21px;
+  right: 0;
+  bottom: -15px;
+}
+nav .cart-state svg {
+  margin-right: 5px;
+}
+
+.product-card .add-to-cart-btn {
+  bottom: 0;
+  left: 0;
+  height: 46px;
+  background-color: #000;
+  color: #fff;
+}
+.product-card .add-to-cart-btn:hover {
+  background-color: #000;
+}
+
+.custom-checkbox {
+  width: 21px;
+  height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  margin-left: -16px;
+  margin-right: 16px;
+}
+
+.cart-dropdown {
+  border: 4px solid #e4e4e4;
+  top: 74px;
+  right: -1px;
+  padding: 20px;
+  z-index: 3;
+  background: #fff;
+  width: 390px;
+}
+.cart-dropdown .clear-btn {
+  border: 3px solid #000;
+}
+.cart-dropdown-content {
+  border-bottom: 1px solid #C2C2C2;
+  padding: 10px 0;
+  margin-bottom: 20px;
+}
+.cart-item {
+  margin-bottom: 20px;
+}
+.cart-item .product-img {
+  object-fit: cover;
+}
+.cart-dropdown-head {
+  padding-bottom: 10px;
+}
+
+.category-list {
+  border-bottom: 1px solid #C2C2C2;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+}
+
+.product-list-utility {
+  padding-top: 30px;
+}
+.text-light-gray {
+  color: #9B9B9B;
+}

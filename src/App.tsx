@@ -6,6 +6,8 @@ import { Product } from "../types/product";
 import ProductCard from "./components/ProductCard";
 import { Provider } from "react-redux";
 import store from "./store";
+import Slider from 'rc-slider';
+import 'rc-slider/assets/index.css';
 
 function App() {
 
@@ -21,9 +23,17 @@ function App() {
     }
   };
 
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]); 
+
+  const handlePriceChange = (newRange: [number, number]) => {
+    setPriceRange(newRange);
+  };
+
+
   const filteredProducts = products.filter((product) =>
-    selectedCategories.length === 0 ? true : selectedCategories.includes(product.category)
-  );
+  (selectedCategories.length === 0 || selectedCategories.includes(product.category))
+  && (product.price >= priceRange[0] && product.price <= priceRange[1])
+);
 
   const [sortByDropdownVisible, setSortByDropdownVisible] = useState(false);
 
@@ -40,14 +50,17 @@ function App() {
     setSortByDropdownVisible(false);
   }
 
-
-
   if (sortingOption === "price ascending") {
     filteredProducts.sort((a, b) => a.price - b.price);
   } else if (sortingOption === "price descending") {
     filteredProducts.sort((a, b) => b.price - a.price);
   }
 
+
+
+
+
+  
   return (
     <Provider store={store}>
     <div className="app">
@@ -118,8 +131,21 @@ function App() {
             </div>
 
             <h5 className="mb-4">Price range</h5>
-            <div>
-
+            <div className="price-list px-2">
+            <Slider
+              range
+              min={0}
+              max={100}
+              defaultValue={[0, 100]}
+              value={priceRange}
+              onChange={handlePriceChange as any}
+              trackStyle={[{ backgroundColor: '#000', borderRadius: 0 }]} 
+              handleStyle={[
+                { backgroundColor: '#000', borderColor: '#000', borderRadius: 0 },
+                { backgroundColor: '#000', borderColor: '#000', borderRadius: 0 },
+              ]} 
+            />
+            <span>{`$${priceRange[0]} - $${priceRange[1]}`}</span>
             </div>
           </div>
           <div className="col-lg-9">

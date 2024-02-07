@@ -25,6 +25,28 @@ function App() {
     selectedCategories.length === 0 ? true : selectedCategories.includes(product.category)
   );
 
+  const [sortByDropdownVisible, setSortByDropdownVisible] = useState(false);
+
+
+  const sortingOptions = [
+    "price ascending",
+    "price descending"
+  ]
+
+  const [sortingOption, setSortingOption] = useState(sortingOptions[0]);
+  
+  const handleSortingOption = (index: number) => {
+    setSortingOption(sortingOptions[index])
+    setSortByDropdownVisible(false);
+  }
+
+
+
+  if (sortingOption === "price ascending") {
+    filteredProducts.sort((a, b) => a.price - b.price);
+  } else if (sortingOption === "price descending") {
+    filteredProducts.sort((a, b) => b.price - a.price);
+  }
 
   return (
     <Provider store={store}>
@@ -36,8 +58,23 @@ function App() {
           <div className="col">
             <div className="product-list-utility d-flex justify-content-between align-items-center">
               <h4>Photography / <span className="text-light-gray fw-light">Premium Photos</span></h4>
-              <div>
-
+              <div className="sort-by-trigger position-relative d-flex align-items-center gap-2"           
+                onMouseEnter={() => setSortByDropdownVisible(true)}
+                onMouseLeave={() => setSortByDropdownVisible(false)}
+              >
+                <div className="d-flex align-items-center gap-1 text-muted">
+                  <img src="/sort.svg" width={15} height={15} alt="" />
+                  <span>Sort By</span>
+                </div>
+                <span className="text-capitalize">{sortingOption}</span>
+                <img src="/chevron-down.svg" width={16} height={8} alt="" />
+                {sortByDropdownVisible && (
+                  <div className="sort-by-dropdown position-absolute shadow w-100 p-3 d-flex flex-column gap-2">
+                    {sortingOptions.map((option, index) => (
+                      <span className="d-block text-capitalize" key={index} onClick={() => handleSortingOption(index)}>{option}</span>
+                    ))}
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -75,3 +75,9 @@ nav .cart-state svg {
 .text-light-gray {
   color: #9B9B9B;
 }
+
+.sort-by-dropdown {
+  top: 25px;
+  background-color: #fff;
+  z-index: 4;
+}

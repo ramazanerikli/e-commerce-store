@@ -31,12 +31,32 @@ const reducer = (state = initialState, action) => {
             ...state,
             cartDropdownOpen: false,
           };
-        case 'ADD_TO_CART':
-          const productToAdd = action.payload;
-          return {
-            ...state,
-            cart: [...state.cart, productToAdd],
-          };
+          case 'ADD_TO_CART':
+            const productToAdd = action.payload;
+            const existingProductIndex = state.cart.findIndex((p) => p.id === productToAdd.id);
+          
+            if (existingProductIndex !== -1) {
+              const updatedCart = [...state.cart];
+              updatedCart[existingProductIndex] = {
+                ...updatedCart[existingProductIndex],
+                quantity: updatedCart[existingProductIndex].quantity + 1,
+              };
+          
+              return {
+                ...state,
+                cart: updatedCart,
+              };
+            } else {
+              return {
+                ...state,
+                cart: [...state.cart, { ...productToAdd, quantity: 1 }],
+              };
+            }
+          case 'CLEAR_CART':
+            return {
+              ...state,
+              cart: [],
+            };
     default:
       return state;
   }

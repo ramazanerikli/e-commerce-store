@@ -18,7 +18,7 @@ const ProductCard: FC<{
   }
 
   const handleAddToCart = () => {
-    dispatch({ type: 'ADD_TO_CART', payload: product });
+    dispatch({ type: 'ADD_TO_CART', payload: { ...product, quantity: 1 } });
     dispatch({ type: 'OPEN_CART_DROPDOWN' });
   };
 

@@ -7,5 +7,5 @@ export interface Product {
   image: string,
   bestseller?: boolean,
   featured?: boolean,
-  details?: null,
+  details?: null
 }

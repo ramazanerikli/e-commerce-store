@@ -36,6 +36,11 @@ nav .cart-state svg {
   margin-right: 16px;
 }
 
+@media screen and (min-width: 768px) {
+  .cart-dropdown {
+    width: 390px;
+  }
+}
 .cart-dropdown {
   border: 4px solid #e4e4e4;
   top: 74px;
@@ -43,7 +48,7 @@ nav .cart-state svg {
   padding: 20px;
   z-index: 3;
   background: #fff;
-  width: 390px;
+  min-width: 310px;
 }
 .cart-dropdown .clear-btn {
   border: 3px solid #000;
@@ -80,4 +85,8 @@ nav .cart-state svg {
   top: 25px;
   background-color: #fff;
   z-index: 4;
+}
+
+.modal-footer button {
+  flex: 1;
 }

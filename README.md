@@ -1,6 +1,12 @@
-# Getting Started with Create React App
+# E-commerce store shopping cart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+E-commerce store shopping cart implementation with using `React.js` and `Redux` for the state management. 
+
+Implemented filtering options:
+
+- Filter by category name
+- Filter by price ranges
+- Sort by ascending/descending price
 
 ## Available Scripts
 

@@ -53,7 +53,7 @@ const Nav: React.FC = () => {
         </a>
         <div className="cart-state position-relative">
           <button onClick={handleOpenCartDropdown} className="bg-transparent border-0">
-          <AiOutlineShoppingCart size={54} />
+          <img src="/basket.svg" width={54} height={54} alt="Basket"  />
           <span className="cart-badge bg-black text-white position-absolute d-flex align-items-center justify-content-center">
             {cartItems.length}
           </span>

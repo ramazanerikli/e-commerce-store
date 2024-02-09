@@ -5,10 +5,10 @@ nav {
   border-bottom: 4px solid #E4E4E4;
 }
 nav .cart-badge {
-  width: 21px;
-  height: 21px;
-  right: 0;
-  bottom: -15px;
+  width: 20px;
+  height: 20px;
+  right: -4px;
+  bottom: -13px;
 }
 nav .cart-state svg {
   margin-right: 5px;
